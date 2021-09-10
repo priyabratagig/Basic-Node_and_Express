@@ -12,7 +12,7 @@ app.use('/public',express.static(__dirname + '/public'));
 app.get('/now',(req, res, next)=>{
   req.time= new Date().toString();
   next();
-}, function (req, res){
+}, function(req, res){
   res.json({'time': req.time});
 });
 
@@ -27,6 +27,9 @@ app.get('/json',(req, res)=>{
     res.json({"message": "Hello json"});
 });
 
+app.get('/:word/echo',function(req, res){
+  res.json({'echo': req.params.word});
+});
 
 
 
