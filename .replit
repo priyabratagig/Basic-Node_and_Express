@@ -1,2 +1,3 @@
+'MESSAGE_STYLE'="uppercase"
 language = "nodejs"
 run = "npm start"
