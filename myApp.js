@@ -1,7 +1,9 @@
 var express = require('express');
 var app = express();
+var bodyPaser = require('body-parser');
 console.log("Hello World");
 
+/middleware 'use'/
 app.use((req, res, next)=>{
   console.log(req.method+' '+req.path+" - "+req.ip)
   next();
@@ -16,6 +18,9 @@ app.get('/now',(req, res, next)=>{
   res.json({'time': req.time});
 });
 
+app.use(bodyPaser.urlencoded({extended: 'flase'}));
+
+/route method/
 app.get('/',(req,res)=>{
   res.sendFile(__dirname + "/views/index.html");
 });
